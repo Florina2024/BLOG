@@ -26,8 +26,25 @@ html, body{
     width: 100%;
     height: 100%;
     background-color: var(--background-color);
+    scroll-behavior: smooth;
+    animation: appear linear;
+    animation-timeline: ();
+    animation-range: entry 30%;
+
+    @keyframes appear {
+        from{
+            opacity: 0;
+            scale: 0.5;
+        }
+        to{
+            opacity: 1;
+            scale: 1;
+        }
+    }
 
 }
+
+
 .home{
     width: 100%;
     display: flex;
@@ -35,6 +52,7 @@ html, body{
     align-items: center;
     padding: 1rem 3rem 0.5rem;
     gap: 25rem;
+    background-color: #fff;
 }
 .home h1{
     font-family: var(--title-font);
@@ -42,11 +60,13 @@ html, body{
     font-size: 35px;
     font-weight: 200;
     padding-left: 4rem;
+
 }
 
 .home .home__box{
     width: 100%;
     height: 100%;
+    
 }
 
 .home .home__box nav{
@@ -64,6 +84,7 @@ html, body{
     justify-content: space-between;
     align-items: center;
     gap: 1rem;
+
 }
 
 .home .home__box nav .home__logo .home__toggle{
@@ -139,14 +160,13 @@ html, body{
     .home .home__box nav .home__menu.active{
         display: block;
         position: absolute;
-        right: 4rem;
-        top: 4rem;
-        width: 90vw;
+        left: -1rem;
+        top: 3.3rem;
+        width: 60vw;
         height: 100vh;
         background: var(--gray-color);
         display: flex;
         align-items: center;
-        justify-content:center;
         padding: 0 3rem;
        
     }
@@ -164,7 +184,7 @@ html, body{
     .home .home__box nav .home__menu ul{
         flex-direction: column;
         text-align: center;
-        gap: 1rem;  
+        gap: 3rem;  
     }
 
     .home .home__box nav .home__menu ul hr{
@@ -272,6 +292,7 @@ html, body{
 @media (max-width: 607px) {
     .container__image h1 {
         font-size: 15px; /* Adjusted font size */
+        padding: 0;
     }
     
     .container__image img {
@@ -421,6 +442,12 @@ html, body{
     margin-top: 27px;
     background-color: #fff;
     border: 1px solid var(--gray-color);
+    transition: transform .4s;
+}
+
+.more__content button:hover, 
+.more__content button:focus-visible{
+        transform: translateY(-.8rem);
 }
 
 .more__content button a{
@@ -433,6 +460,7 @@ html, body{
 .more__content button a:hover{
     font-weight: bolder;
     cursor: pointer;
+ 
 }
 
 .more__img{
@@ -446,6 +474,17 @@ html, body{
 
 .more__img:hover{
     transform: scale(.9);
+}
+
+@keyframes appear {
+    from{
+        opacity: 0;
+        scale: 0.5;
+    }
+    to{
+        opacity: 1;
+        scale: 1;
+    }
 }
 
 @media (max-width: 1020px) {
@@ -483,7 +522,9 @@ html, body{
     }
 
     .more__grid {
-        grid-template-columns: 1fr; /* Single column layout */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .more__content {
@@ -509,6 +550,12 @@ html, body{
 @media (max-width: 767px) {
     .more__container {
         padding: 1rem 1rem; /* Minimal padding */
+    }
+
+    .more__grid{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .more__content {
@@ -832,7 +879,7 @@ footer h2{
     }
 
     .footer__main h4 {
-        font-size: 9px; /* Smaller font size */
+        font-size: 11px; /* Smaller font size */
     }
 
     .footer__number p {
